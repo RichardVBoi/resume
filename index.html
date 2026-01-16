@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visionary Resume - Future Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-cyan: #00fff5;
+            --primary-purple: #b400ff;
+            --dark-bg: #0a0a12;
+            --card-bg: rgba(20, 20, 35, 0.85);
+            --accent-orange: #ff6b00;
+            --text-light: #e0e0ff;
+            --glow: 0 0 20px var(--primary-cyan), 0 0 40px var(--primary-cyan);
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(180, 0, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 245, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 107, 0, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: bgShift 20s ease-in-out infinite;
+        }
+
+        @keyframes bgShift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        /* Grid overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 245, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 245, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header section */
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 255, 245, 0.2) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+        }
+
+        .name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 50%, var(--accent-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            animation: slideDown 1s ease-out;
+            text-transform: uppercase;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary-cyan);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            animation: slideDown 1s ease-out 0.2s both;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--primary-cyan);
+            text-shadow: var(--glow);
+        }
+
+        /* Section styles */
+        .section {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 245, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out both;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 245, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .section:hover::before {
+            left: 100%;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple));
+            box-shadow: var(--glow);
+        }
+
+        /* Profile section */
+        .profile-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* Experience/Education items */
+        .item {
+            margin-bottom: 30px;
+            padding-left: 30px;
+            border-left: 3px solid var(--primary-purple);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .item:hover {
+            border-left-color: var(--primary-cyan);
+            transform: translateX(10px);
+        }
+
+        .item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 13px;
+            height: 13px;
+            background: var(--primary-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-cyan);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-cyan);
+        }
+
+        .item-company {
+            font-size: 1.2rem;
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        .item-date {
+            font-size: 1rem;
+            color: rgba(224, 224, 255, 0.7);
+            font-style: italic;
+        }
+
+        .item-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+
+        /* Skills section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: rgba(30, 30, 50, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 245, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-cyan);
+            box-shadow: 0 10px 30px rgba(0, 255, 245, 0.3);
+        }
+
+        .skill-category-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--accent-orange);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, rgba(0, 255, 245, 0.2), rgba(180, 0, 255, 0.2));
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0, 255, 245, 0.4);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, rgba(0, 255, 245, 0.4), rgba(180, 0, 255, 0.4));
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 255, 245, 0.5);
+        }
+
+        /* Decorative elements */
+        .corner-accent {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary-cyan);
+        }
+
+        .corner-accent.top-left {
+            top: 20px;
+            left: 20px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .corner-accent.bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2.5rem;
+            }
+
+            .title {
+                font-size: 1.2rem;
+                letter-spacing: 3px;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .item-header {
+                flex-direction: column;
+            }
+        }
+
+        /* Scanline effect */
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-cyan), transparent);
+            opacity: 0.3;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="scanline"></div>
+    
+    <div class="container">
+        <header class="header">
+            <h1 class="name">Richard Vaalotu</h1>
+            <p class="title">Visionary • Innovator • Future Builder</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>email@example.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+1 (555) 123-4567</span>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <span>linkedin.com/in/yourname</span>
+                </div>
+                <div class="contact-item">
+                    <span>🌐</span>
+                    <span>yourwebsite.com</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="section">
+            <div class="corner-accent top-left"></div>
+            <h2 class="section-title">Profile</h2>
+            <p class="profile-text">
+                A forward-thinking professional with a passion for cutting-edge technology and innovation. 
+                Experienced in driving transformative projects and building solutions that shape the future. 
+                Committed to pushing boundaries and creating meaningful impact through visionary thinking and 
+                strategic execution.
+            </p>
+            <div class="corner-accent bottom-right"></div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Senior Innovation Architect</div>
+                        <div class="item-company">FutureTech Industries</div>
+                    </div>
+                    <div class="item-date">2022 - Present</div>
+                </div>
+                <div class="item-description">
+                    Leading next-generation product development initiatives, architecting scalable solutions, 
+                    and driving digital transformation across the organization. Spearheaded projects resulting 
+                    in 40% efficiency improvements and pioneered AI integration strategies.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Technology Strategist</div>
+                        <div class="item-company">Quantum Dynamics Corp</div>
+                    </div>
+                    <div class="item-date">2019 - 2022</div>
+                </div>
+                <div class="item-description">
+                    Developed comprehensive technology roadmaps and led cross-functional teams in delivering 
+                    innovative solutions. Managed portfolio of high-impact projects valued at $5M+ and 
+                    established best practices for emerging technologies adoption.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Solutions Engineer</div>
+                        <div class="item-company">NexGen Systems</div>
+                    </div>
+                    <div class="item-date">2017 - 2019</div>
+                </div>
+                <div class="item-description">
+                    Designed and implemented enterprise-level applications, optimized system performance, 
+                    and collaborated with stakeholders to translate business requirements into technical solutions.
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Master of Science in Computer Science</div>
+                        <div class="item-company">Institute of Technology</div>
+                    </div>
+                    <div class="item-date">2015 - 2017</div>
+                </div>
+                <div class="item-description">
+                    Specialization in Artificial Intelligence and Machine Learning. 
+                    Thesis: "Predictive Models for Autonomous Systems"
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Bachelor of Engineering in Software Engineering</div>
+                        <div class="item-company">Technical University</div>
+                    </div>
+                    <div class="item-date">2011 - 2015</div>
+                </div>
+                <div class="item-description">
+                    First Class Honours. President of Technology Innovation Club.
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-category-title">Technical Skills</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Cloud Architecture</span>
+                        <span class="skill-tag">AI/ML</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Leadership</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Team Building</span>
+                        <span class="skill-tag">Strategic Planning</span>
+                        <span class="skill-tag">Agile Management</span>
+                        <span class="skill-tag">Mentorship</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Innovation</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Product Development</span>
+                        <span class="skill-tag">Design Thinking</span>
+                        <span class="skill-tag">R&D</span>
+                        <span class="skill-tag">Emerging Tech</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Business</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">Stakeholder Relations</span>
+                        <span class="skill-tag">Budget Planning</span>
+                        <span class="skill-tag">Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
