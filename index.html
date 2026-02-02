@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Richard Vaalotu - Tech Entrepreneur | HAMOTECH Solutions</title>
+    <meta name="description" content="Richard Vaalotu - Founder & CEO of HAMOTECH Solutions. Software Developer, Tech Consultant, and Entrepreneur serving the Pacific Islands with 16+ years of experience.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%2300fff5;stop-opacity:1'/><stop offset='50%25' style='stop-color:%23b400ff;stop-opacity:1'/><stop offset='100%25' style='stop-color:%23ff6b00;stop-opacity:1'/></linearGradient></defs><rect width='100' height='100' fill='%230a0a12'/><text x='50' y='70' font-family='Arial,sans-serif' font-size='60' font-weight='bold' fill='url(%23grad)' text-anchor='middle'>H</text><circle cx='50' cy='50' r='45' stroke='%2300fff5' stroke-width='2' fill='none' opacity='0.3'/></svg>">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+    <script defer src="https://umami.samoabiz.com/script.js" data-website-id="8d2a67ef-0fe8-4d63-ad27-8608a5a1c82e"></script>
+    <style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-cyan: #00fff5;
+            --primary-purple: #b400ff;
+            --dark-bg: #0a0a12;
+            --card-bg: rgba(20, 20, 35, 0.85);
+            --accent-orange: #ff6b00;
+            --text-light: #e0e0ff;
+            --glow: 0 0 20px var(--primary-cyan), 0 0 40px var(--primary-cyan);
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(180, 0, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 245, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 107, 0, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: bgShift 20s ease-in-out infinite;
+        }
+
+        @keyframes bgShift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        /* Grid overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 245, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 245, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header section */
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        /* Profile image */
+        .profile-image-container {
+            margin: 0 auto 30px;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-cyan);
+            box-shadow: 
+                0 0 30px rgba(0, 255, 245, 0.6),
+                0 0 60px rgba(180, 0, 255, 0.4),
+                inset 0 0 20px rgba(0, 255, 245, 0.2);
+            animation: profileGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes profileGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 30px rgba(0, 255, 245, 0.6),
+                    0 0 60px rgba(180, 0, 255, 0.4),
+                    inset 0 0 20px rgba(0, 255, 245, 0.2);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 40px rgba(0, 255, 245, 0.8),
+                    0 0 80px rgba(180, 0, 255, 0.6),
+                    inset 0 0 30px rgba(0, 255, 245, 0.3);
+            }
+        }
+
+        .profile-image-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-purple);
+            opacity: 0.5;
+            animation: rotate 10s linear infinite;
+        }
+
+        .profile-image-container::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-orange);
+            opacity: 0.3;
+            animation: rotate 15s linear infinite reverse;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 255, 245, 0.2) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+        }
+
+        .name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 50%, var(--accent-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            animation: slideDown 1s ease-out;
+            text-transform: uppercase;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary-cyan);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            animation: slideDown 1s ease-out 0.2s both;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--primary-cyan);
+            text-shadow: var(--glow);
+        }
+
+        /* Section styles */
+        .section {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 245, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out both;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 245, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .section:hover::before {
+            left: 100%;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple));
+            box-shadow: var(--glow);
+        }
+
+        /* Profile section */
+        .profile-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* Experience/Education items */
+        .item {
+            margin-bottom: 30px;
+            padding-left: 30px;
+            border-left: 3px solid var(--primary-purple);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .item:hover {
+            border-left-color: var(--primary-cyan);
+            transform: translateX(10px);
+        }
+
+        .item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 13px;
+            height: 13px;
+            background: var(--primary-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-cyan);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-cyan);
+        }
+
+        .item-company {
+            font-size: 1.2rem;
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        .item-date {
+            font-size: 1rem;
+            color: rgba(224, 224, 255, 0.7);
+            font-style: italic;
+        }
+
+        .item-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+
+        /* Skills section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: rgba(30, 30, 50, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 245, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-cyan);
+            box-shadow: 0 10px 30px rgba(0, 255, 245, 0.3);
+        }
+
+        .skill-category-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--accent-orange);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, rgba(0, 255, 245, 0.2), rgba(180, 0, 255, 0.2));
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0, 255, 245, 0.4);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, rgba(0, 255, 245, 0.4), rgba(180, 0, 255, 0.4));
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 255, 245, 0.5);
+        }
+
+        /* Decorative elements */
+        .corner-accent {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary-cyan);
+        }
+
+        .corner-accent.top-left {
+            top: 20px;
+            left: 20px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .corner-accent.bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2.5rem;
+            }
+
+            .title {
+                font-size: 1.2rem;
+                letter-spacing: 3px;
+            }
+
+            .profile-image-container {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 20px;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .item-header {
+                flex-direction: column;
+            }
+        }
+
+        /* Scanline effect */
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-cyan), transparent);
+            opacity: 0.3;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="scanline"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="profile-image-container">
+                <img src="data:image/jpeg;base64,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" alt="Richard Vaalotu" class="profile-image">
+            </div>
+            <h1 class="name">Richard Vaalotu</h1>
+            <p class="title">Founder & CEO • Tech Entrepreneur • Software Developer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>richard@hamotechsolutions.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>(+685) 7235337</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Apia, Samoa</span>
+                </div>
+                <div class="contact-item">
+                    <span>🌐</span>
+                    <span>www.hamotechsolutions.com</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="section">
+            <div class="corner-accent top-left"></div>
+            <h2 class="section-title">Profile</h2>
+            <p class="profile-text">
+                Talofa lava! I am a tech entrepreneur with 16+ years of extensive knowledge in technology and 
+                a strong background in software development, system administration, cybersecurity and 
+                networking. As Founder & CEO of HAMOTECH Solutions, I'm passionate about advancing ICT solutions 
+                for the Pacific Islands and optimizing systems to enhance operational efficiency. From my roots 
+                as a farmer to becoming a developer, I carry technology forward for Samoa and beyond.
+            </p>
+            <div class="corner-accent bottom-right"></div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Founder & CEO</div>
+                        <div class="item-company">HAMOTECH Solutions</div>
+                    </div>
+                    <div class="item-date">2023 - Present</div>
+                </div>
+                <div class="item-description">
+                    Leading a technology services company providing software development, tech consulting, and 
+                    IT solutions across the Pacific Islands. Building community-driven web applications, 
+                    gaming-themed platforms, and automation tools. Developing comprehensive Docker container 
+                    resources, client portals, and business showcase platforms with cyberpunk aesthetic design. 
+                    Specializing in Coolify deployment management, WordPress solutions, and Pacific Island-focused 
+                    digital tools.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Senior Technician & Software Developer</div>
+                        <div class="item-company">Greenology Samoa Ltd</div>
+                    </div>
+                    <div class="item-date">November 2019 - September 2023</div>
+                </div>
+                <div class="item-description">
+                    Developed the GVIEW Vehicle and Asset Tracking System with real-time GPS data collection, 
+                    interactive maps using Leaflet, Mapbox, and ARCGIS. Implemented secure APIs for data streams 
+                    from multiple vehicles with geofencing and performance analytics. Maintained network infrastructure, 
+                    managed CCTV systems, and provided comprehensive IT support. Built Government Intranet Portal using 
+                    WordPress CMS. Supervised server maintenance, conducted user training, and created system documentation. 
+                    Performed network troubleshooting, PC hardware/software support, and application monitoring.
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Education & Certifications</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Ongoing Professional Development</div>
+                        <div class="item-company">Coursera, W3Schools, Online Resources</div>
+                    </div>
+                    <div class="item-date">January 2014 - Present</div>
+                </div>
+                <div class="item-description">
+                    Continuous learning in software development, cloud technologies, cybersecurity, and emerging tech. 
+                    Currently pursuing CompTIA certifications to complement practical experience.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Google IT Support Professional Certificate</div>
+                        <div class="item-company">Google via Coursera</div>
+                    </div>
+                    <div class="item-date">Completed</div>
+                </div>
+                <div class="item-description">
+                    IT Technician Fundamentals and Systems Administration & IT Infrastructure Services
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Secondary Education</div>
+                        <div class="item-company">Faatuatua Christian Secondary School</div>
+                    </div>
+                    <div class="item-date">2011 - 2013</div>
+                </div>
+                <div class="item-description">
+                    Vaitele Fou, Apia, Samoa
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-category-title">Programming & Development</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Kotlin</span>
+                        <span class="skill-tag">C/C#</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Bash/Shell</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">XML</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Systems & Infrastructure</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Windows Server</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">MacOS</span>
+                        <span class="skill-tag">Active Directory</span>
+                        <span class="skill-tag">DHCP</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">NAS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Cloud & Web Technologies</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Linode</span>
+                        <span class="skill-tag">WordPress CMS</span>
+                        <span class="skill-tag">Self-Hosting</span>
+                        <span class="skill-tag">API Development</span>
+                        <span class="skill-tag">Database Design</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">SQL Server</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Networking & Security</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">LAN/WAN Setup</span>
+                        <span class="skill-tag">TCP/IP</span>
+                        <span class="skill-tag">Cisco Routers</span>
+                        <span class="skill-tag">Network Security</span>
+                        <span class="skill-tag">Firewall Config</span>
+                        <span class="skill-tag">Cybersecurity</span>
+                        <span class="skill-tag">Incident Response</span>
+                        <span class="skill-tag">Vulnerability Assessment</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Specialized Technologies</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Blockchain</span>
+                        <span class="skill-tag">Token Creation</span>
+                        <span class="skill-tag">3D Rendering</span>
+                        <span class="skill-tag">Adobe Photoshop</span>
+                        <span class="skill-tag">Canva</span>
+                        <span class="skill-tag">CCTV Systems</span>
+                        <span class="skill-tag">AV Equipment</span>
+                        <span class="skill-tag">GPS Tracking</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Soft Skills</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Problem-Solving</span>
+                        <span class="skill-tag">Team Collaboration</span>
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Mentorship</span>
+                        <span class="skill-tag">Client Relations</span>
+                        <span class="skill-tag">Project Management</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">GVIEW Vehicle & Asset Tracking System</div>
+                        <div class="item-company">Greenology Samoa Ltd</div>
+                    </div>
+                </div>
+                <div class="item-description">
+                    Comprehensive GPS-based real-time tracking system featuring geofencing, automated alerts, 
+                    and performance analytics. Integrated mapping tools using Leaflet, Mapbox, and ARCGIS. 
+                    Secured through role-based access control with real-time data collection from multiple vehicles.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Government Intranet Portal</div>
+                        <div class="item-company">Samoa Government</div>
+                    </div>
+                </div>
+                <div class="item-description">
+                    Developed a secure web portal using WordPress CMS for internal government communications 
+                    and document management. Self-hosted solution with enhanced security features.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Self-Hosted Cloud Infrastructure (HomeLab)</div>
+                        <div class="item-company">Personal/HAMOTECH Solutions</div>
+                    </div>
+                </div>
+                <div class="item-description">
+                    Built a Linux-based cloud server using AWS/Linode and CASAOS for efficient resource 
+                    management. Deployed various applications through Coolify including project management 
+                    tools, analytics platforms, and business automation systems.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Community-Driven Pacific Projects (Upcoming)</div>
+                        <div class="item-company">HAMOTECH Solutions</div>
+                    </div>
+                </div>
+                <div class="item-description">
+                    Non-profit initiatives including Job Listing Webapp for Samoa, Business Directory 
+                    (Online Yellow Pages), and various Pacific Island-focused digital tools. Community-driven 
+                    projects aimed at empowering local businesses and job seekers.
+                </div>
+            </div>
+        </section>
+    </div>
+
+      <!-- Footer -->
+    <footer style="text-align: center; padding: 40px 20px 20px; position: relative;">
+        <div style="font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--primary-cyan); text-transform: uppercase; letter-spacing: 2px; animation: fadeIn 1s ease-out 1s both;">
+            Powered by <span style="background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 50%, var(--accent-orange) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">HAMOTECH SOLUTIONS</span> • Carrying Technology Forward
+        </div>
+        <div style="margin-top: 15px; font-size: 0.8rem; color: rgba(224, 224, 255, 0.6);">
+            © 2025 Richard Vaalotu | All Rights Reserved
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
